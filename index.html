@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ILR Copilot" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#141414" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>ILR Copilot — UK Residence Compliance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      *{box-sizing:border-box;margin:0;padding:0}
+      html,body{height:100%;background:#141414;overscroll-behavior:none;-webkit-overflow-scrolling:touch}
+      #root{min-height:100%}
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if('serviceWorker' in navigator){
+        window.addEventListener('load',()=>{
+          navigator.serviceWorker.register('/sw.js')
+            .then(r=>console.log('SW:',r.scope))
+            .catch(e=>console.log('SW error:',e));
+        });
+      }
+    </script>
+  </body>
+</html>
